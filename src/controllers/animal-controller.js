@@ -1,6 +1,19 @@
 const mongoose = require('mongoose');
 const Animal = mongoose.model('Animal');
 
+exports.getAnimaisFiltrados = (req, res, next) => {
+    const especie = req.params.especie;
+    const genero = req.params.genero;
+
+    Animal
+    .find({especie: especie, genero: genero})
+    .then(data => {
+        res.status(200).send(data);
+    }).catch(e => {
+        res.status(400).send(e);
+    });
+};
+
 exports.getAnimais = () => {
     return Animal.find({});
 };
