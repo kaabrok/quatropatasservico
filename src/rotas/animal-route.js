@@ -3,7 +3,7 @@ const router = express.Router();
 const controller = require('../controllers/animal-controller');
 
 router.get('/', controller.get);
-router.get('/animais/:especie/:genero/', controller.getAnimaisFiltrados);
+router.get('/animais/', controller.getAnimaisFiltrados);
 router.get('/macho/', controller.getMacho);
 router.get('/cachorro/', controller.getCachorro);
 router.get('/cachorro/macho', controller.getCachorroMacho);
